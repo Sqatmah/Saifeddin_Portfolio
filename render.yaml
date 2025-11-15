@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: saif-portfolio
+    env: python
+    buildCommand: ""
+    startCommand: "gunicorn portfolio_site.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: portfolio_site.settings
+      - key: PYTHON_VERSION
+        value: 3.11
