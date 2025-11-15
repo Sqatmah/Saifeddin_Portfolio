@@ -2,10 +2,14 @@ services:
   - type: web
     name: saif-portfolio
     env: python
-    buildCommand: ""
-    startCommand: "gunicorn portfolio_site.wsgi:application"
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+      python manage.py migrate --noinput
+    startCommand: gunicorn portfolio_site.wsgi:application
+    postDeployCommand: "python create_superuser.py"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: portfolio_site.settings
       - key: PYTHON_VERSION
-        value: 3.11
+        value: 3.12.3
