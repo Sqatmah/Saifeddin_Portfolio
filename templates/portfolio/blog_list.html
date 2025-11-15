@@ -1,0 +1,22 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Blog | Saifeddin Qatma{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Blog</h2>
+
+        <div class="blog-grid">
+            {% for post in posts %}
+            <a href="{% url 'blog_detail' post.slug %}" class="blog-card">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.summary|truncatechars:150 }}</p>
+            </a>
+            {% empty %}
+            <p>No articles yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

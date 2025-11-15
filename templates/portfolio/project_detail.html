@@ -1,0 +1,120 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}{{ project.title }} | Project Details{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <a href="{% url 'projects' %}" class="back-link">
+      ← Back to all projects
+    </a>
+
+    <div class="project-detail-layout">
+      <!-- Left: Main content -->
+      <div class="project-detail-main">
+        <div class="project-detail-header">
+          {% if project.category %}
+          <span class="project-badge">{{ project.category }}</span>
+          {% else %}
+          <span class="project-badge">Project</span>
+          {% endif %}
+
+          <h1>{{ project.title }}</h1>
+
+          {% if project.short_description %}
+          <p class="project-detail-short">
+            {{ project.short_description }}
+          </p>
+          {% endif %}
+
+          <div class="project-meta-row">
+  {% if project.tech_stack %}
+  <div class="meta-block">
+    <span class="meta-label">Tech stack</span>
+    <span class="meta-value">{{ project.tech_stack }}</span>
+
+    <div class="project-tech-icons" style="margin-top: 0.35rem;">
+      {% if "Python" in project.tech_stack %}
+        <span class="tech-icon tech-python">Py</span>
+      {% endif %}
+      {% if "Django" in project.tech_stack %}
+        <span class="tech-icon tech-django">Dj</span>
+      {% endif %}
+      {% if ".Net" in project.tech_stack or "ASP.Net" in project.tech_stack or "ASP.Net Core" in project.tech_stack %}
+        <span class="tech-icon tech-dotnet">.NET</span>
+      {% endif %}
+      {% if "JavaScript" in project.tech_stack or "JS" in project.tech_stack %}
+        <span class="tech-icon tech-js">JS</span>
+      {% endif %}
+      {% if "PostgreSQL" in project.tech_stack %}
+        <span class="tech-icon tech-sql">SQL</span>
+      {% endif %}
+      {% if "SQLite" in project.tech_stack %}
+        <span class="tech-icon tech-sql">DB</span>
+      {% endif %}
+      {% if "AWS" in project.tech_stack or "Alibaba" in project.tech_stack or "Cloud" in project.tech_stack %}
+        <span class="tech-icon tech-cloud">☁</span>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="meta-block">
+    <span class="meta-label">Type</span>
+    <span class="meta-value">
+      {{ project.category|default:"Application" }}
+    </span>
+  </div>
+</div>
+
+
+        <div class="project-detail-body">
+          <h2>Overview</h2>
+          <p class="project-detail-description">
+            {{ project.description|linebreaksbr }}
+          </p>
+        </div>
+
+        <div class="project-links">
+          {% if project.demo_url %}
+          <a href="{{ project.demo_url }}" target="_blank" class="btn primary-btn">
+            Live demo
+          </a>
+          {% endif %}
+
+          {% if project.github_url %}
+          <a href="{{ project.github_url }}" target="_blank" class="btn secondary-btn">
+            View on GitHub
+          </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Right: Side preview -->
+      <aside class="project-detail-side">
+        {% if project.image %}
+        <div class="project-preview-card">
+          <img
+            src="{{ project.image.url }}"
+            alt="{{ project.title }}"
+            class="project-detail-image"
+          />
+        </div>
+        {% else %}
+        <div class="project-preview-card project-preview-placeholder">
+          <p>No preview image uploaded for this project yet.</p>
+        </div>
+        {% endif %}
+
+        <div class="project-side-info">
+          <h3>Project Highlights</h3>
+          <p>
+            This project reflects my experience in building real-world back-end
+            systems, designing data models, and integrating APIs with a clean UI.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}

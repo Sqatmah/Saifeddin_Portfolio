@@ -1,0 +1,90 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Projects | Saifeddin Qatma{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <!-- Header -->
+    <div class="projects-header">
+      <div>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">
+          A curated selection of real systems I've built using Django, ASP.Net Core, and modern web technologies.
+        </p>
+      </div>
+    </div>
+
+    <!-- Filters (اختياري: يعتمد على حقل category في الـ DB) -->
+    <div class="projects-filters">
+      <a href="{% url 'projects' %}" class="filter-chip {% if not active_category or active_category == 'all' %}active{% endif %}">
+        All
+      </a>
+      <a href="{% url 'projects' %}?category=Full%20Stack" class="filter-chip {% if active_category == 'Full Stack' %}active{% endif %}">
+        Full Stack
+      </a>
+      <a href="{% url 'projects' %}?category=Dashboard" class="filter-chip {% if active_category == 'Dashboard' %}active{% endif %}">
+        Dashboards
+      </a>
+      <a href="{% url 'projects' %}?category=Web%20Application" class="filter-chip {% if active_category == 'Web Application' %}active{% endif %}">
+        Web Applications
+      </a>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid projects-grid-large">
+      {% for project in projects %}
+      <article class="project-card project-card-extended">
+        {% if project.image %}
+        <div class="project-card-thumb">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+        </div>
+        {% endif %}
+
+        <div class="project-card-header">
+            {% if project.category %}
+            <span class="project-badge">{{ project.category }}</span>
+            {% else %}
+            <span class="project-badge">Project</span>
+            {% endif %}
+
+            <h3>{{ project.title }}</h3>
+            {% if project.short_description %}
+            <p>{{ project.short_description }}</p>
+            {% endif %}
+        </div>
+
+        <div class="project-card-body">
+            {% if project.tech_stack %}
+            <p class="project-tech-line">
+            {{ project.tech_stack }}
+            </p>
+            {% endif %}
+        </div>
+
+        <div class="project-card-footer">
+            <a href="{% url 'project_detail' project.slug %}" class="btn project-btn">
+            View details
+            </a>
+
+            {% if project.github_url %}
+            <a href="{{ project.github_url }}" target="_blank" class="link-ghost">
+            GitHub
+            </a>
+            {% endif %}
+
+            {% if project.demo_url %}
+            <a href="{{ project.demo_url }}" target="_blank" class="link-ghost">
+            Live demo
+            </a>
+            {% endif %}
+        </div>
+      </article>
+
+      {% empty %}
+      <p>No projects added yet. Please add some projects from the admin panel.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

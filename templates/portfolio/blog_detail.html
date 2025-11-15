@@ -1,0 +1,16 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}{{ post.title }} | Blog{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p class="post-date">{{ post.created_at|date:"F d, Y" }}</p>
+
+        <article class="post-content">
+            {{ post.content|safe }}
+        </article>
+    </div>
+</section>
+{% endblock %}

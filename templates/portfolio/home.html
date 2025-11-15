@@ -1,0 +1,265 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Saifeddin Qatma | Back-End & Full Stack Developer{% endblock %}
+
+{% block content %}
+
+<!-- ================== HERO SECTION ================== -->
+<section id="hero" class="section hero-section">
+  <div class="container hero-grid">
+    <!-- LEFT : INTRO -->
+    <div class="hero-left">
+      <h1 class="hero-title">
+        Back-End & Full Stack Developer
+      </h1>
+
+      <p class="hero-subtitle">
+        Python Django · ASP.Net Core · Cloud & DevOps Path
+      </p>
+
+      <p class="hero-desc">
+        I'm Saifeddin Qatma, a back-end & full stack developer with hands-on
+        experience in Django, Django REST Framework, ASP.Net Core 6, and modern
+        web technologies. I’ve built performance dashboards, health insurance systems,
+        job platforms, and APIs that are clean, scalable, and production-ready.
+      </p>
+
+      <p class="hero-desc">
+        Currently, I’m deepening my cloud and DevOps skills with AWS and Alibaba
+        Cloud, while continuously shipping real-world projects.
+      </p>
+
+      <!-- BUTTONS -->
+      <div class="hero-buttons">
+        <a href="{% url 'projects' %}" class="btn primary-btn">
+          View Projects
+        </a>
+
+        <a href="#contact" class="btn secondary-btn">
+          Contact Me
+        </a>
+
+        <a href="{% static 'docs/Saifeddin_Qatma_CV.pdf' %}"
+           class="btn ghost-btn"
+           download>
+          <span class="btn-icon">📄</span>
+          <span>Download CV</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT : PROFILE + QUICK FACTS -->
+    <div class="hero-right">
+      <!-- صورة شخصية -->
+      <div class="profile-wrapper">
+        <img
+          src="{% static 'img/profile.jpg' %}"
+          alt="Saifeddin Qatma"
+          class="profile-img"
+        />
+      </div>
+
+      <!-- كرت معلومات سريعة -->
+      <div class="hero-card">
+        <div class="hero-bio">
+          <p><strong>Role:</strong> Back-End & Full Stack Developer</p>
+          <p><strong>Stack:</strong> Python (Django / DRF), ASP.Net Core 6, C#, JavaScript</p>
+          <p><strong>Cloud:</strong> Alibaba Cloud, AWS fundamentals</p>
+          <p><strong>Currently:</strong> Back-End / Cloud & DevOps learner</p>
+          <p><strong>Focus:</strong> Clean code, scalable APIs, real-world systems</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================== SKILLS SECTION ================== -->
+<section id="skills" class="section">
+  <div class="container">
+    <h2 class="section-title">Skills & Tech Stack</h2>
+    <p class="section-subtitle">
+      A solid mix of back-end engineering, full stack development, and cloud foundations.
+    </p>
+
+    <div class="skills-grid">
+      <!-- Backend -->
+      <div class="skill-card">
+        <h3>Back-End Development</h3>
+        <ul>
+          <li>Python (Django, Django REST Framework)</li>
+          <li>ASP.Net Core 6, C#</li>
+          <li>RESTful API design & implementation</li>
+          <li>Authentication, authorization, clean architecture</li>
+        </ul>
+      </div>
+
+      <!-- Web & Full Stack -->
+      <div class="skill-card">
+        <h3>Web & Full Stack</h3>
+        <ul>
+          <li>HTML5, CSS3, JavaScript (ES6+)</li>
+          <li>Responsive UI implementation</li>
+          <li>Integration with back-end APIs</li>
+          <li>Working with dashboards & data visualization</li>
+        </ul>
+      </div>
+
+      <!-- Cloud & DevOps -->
+      <div class="skill-card">
+        <h3>Cloud & DevOps Path</h3>
+        <ul>
+          <li>Alibaba Cloud (ECS, RDS, SLB, OSS, VPC)</li>
+          <li>Linux basics & server deployment</li>
+          <li>Docker concepts & containerization</li>
+          <li>CI/CD concepts and pipelines foundations</li>
+        </ul>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="skill-card">
+        <h3>Professional Skills</h3>
+        <ul>
+          <li>Problem-solving & analytical thinking</li>
+          <li>Teamwork & communication</li>
+          <li>Ownership & responsibility</li>
+          <li>Fast learner & always improving</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================== EXPERIENCE SECTION ================== -->
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <p class="section-subtitle">
+      Professional roles and internships where I built real systems and learned how to ship production-ready software.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Back-End Developer</h3>
+        <p>Sitech IT Services & Consulting · 2025</p>
+        <p>
+          Worked on Django-based back-end systems and APIs using Django REST
+          Framework, focusing on clean architecture, repository patterns, and
+          scalable modules for real clients.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Back-End Developer (Django / DRF)</h3>
+        <p>Mashro'ona Company (IT & Consulting) · Apr 2025 – May 2025</p>
+        <p>
+          Built and maintained RESTful APIs using Django & DRF in a consulting environment.
+          Contributed to backend features, debugging, and integration with front-end teams.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Cloud Computing & AI Intern</h3>
+        <p>Galaxy Organization – DigiSkills · Aug 2024 – Mar 2025</p>
+        <p>
+          Practiced cloud computing concepts using Alibaba Cloud services (ECS, RDS, SLB,
+          OSS, VPC) and explored how to host and scale applications in the cloud.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>C# Developer – ASP.Net Core</h3>
+        <p>Tuned Applications Company · May 2023 – Mar 2024</p>
+        <p>
+          Developed and maintained ASP.Net Core 6 web applications, implemented new features,
+          and collaborated with the team using Agile practices and code reviews.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Technical Support</h3>
+        <p>KAWADER Company · 2021 – 2022</p>
+        <p>
+          Supported systems and technical operations, helped with hardware/software
+          issues, and improved communication and customer-facing skills.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================== LATEST BLOG SECTION ================== -->
+<section id="blog" class="section">
+  <div class="container">
+    <h2 class="section-title">Latest Articles & Notes</h2>
+    <p class="section-subtitle">
+      Short reflections and technical notes from my journey in back-end development and cloud.
+    </p>
+
+    <div class="blog-grid">
+      {% for post in latest_posts %}
+      <a href="{% url 'blog_detail' post.slug %}" class="blog-card">
+        <h3>{{ post.title }}</h3>
+        <p>
+          {% if post.excerpt %}
+            {{ post.excerpt }}
+          {% else %}
+            {{ post.content|truncatechars:140 }}
+          {% endif %}
+        </p>
+        <span class="read-more">Read more →</span>
+      </a>
+      {% empty %}
+      <p>No articles published yet. I’ll start posting about Django, APIs, and cloud soon.</p>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top: 1rem;">
+      <a href="{% url 'blog_list' %}" class="btn secondary-btn">View all articles</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================== CONTACT SECTION ================== -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title">Contact Me</h2>
+    <p class="section-subtitle">
+      For job opportunities, collaboration, or just to say hi — feel free to reach out.
+    </p>
+
+    <form id="contact-form" method="POST" class="contact-form">
+      {% csrf_token %}
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label>Your Email</label>
+        <input type="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea name="message" rows="4" required></textarea>
+      </div>
+
+      <button type="submit" class="btn primary-btn">Send Message</button>
+    </form>
+
+    {% if messages %}
+    <div class="messages">
+      {% for msg in messages %}
+      <p class="message">{{ msg }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

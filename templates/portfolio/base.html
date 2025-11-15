@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{% block title %}Saifeddin Qatma | Portfolio{% endblock %}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <canvas id="space-canvas"></canvas>
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark">&lt;/&gt;</span>
+        <span class="logo-text">Saifeddin Qatma</span>
+      </div>
+
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}" class="nav-link{% if request.resolver_match.url_name == 'home' %} active{% endif %}">Home</a></li>
+          <li><a href="{% url 'projects' %}" class="nav-link{% if request.resolver_match.url_name in 'projects project_detail' %} active{% endif %}">Projects</a></li>
+          <li><a href="{% url 'blog_list' %}" class="nav-link{% if request.resolver_match.url_name in 'blog_list blog_detail' %} active{% endif %}">Blog</a></li>
+          <li><a href="{% url 'home' %}#skills" class="nav-link">Skills</a></li>
+          <li><a href="{% url 'home' %}#experience" class="nav-link">Experience</a></li>
+          <li><a href="{% url 'home' %}#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+          <span class="icon-moon">🌙</span>
+        </button>
+        <button id="menu-toggle" class="icon-btn menu-btn" aria-label="Toggle menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Saifeddin Qatma. All rights reserved.</p>
+      <p class="footer-note">Designed & built with HTML, CSS, JavaScript, and Python on the backend.</p>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
